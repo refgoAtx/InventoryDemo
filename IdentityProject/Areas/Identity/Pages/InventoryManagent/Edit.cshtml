@@ -1,0 +1,227 @@
+﻿@page
+@model IdentityProject.Areas.Identity.Pages.InventoryManagent.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+
+
+<!--begin::Toolbar-->
+<div id="kt_app_toolbar" class="app-toolbar pt-5">
+    <!--begin::Toolbar container-->
+    <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex align-items-stretch">
+        <!--begin::Toolbar wrapper-->
+        <div class="app-toolbar-wrapper d-flex flex-stack flex-wrap gap-4 w-100">
+            <!--begin::Page title-->
+            <div class="page-title d-flex flex-column gap-1 me-3 mb-2">
+                <!--begin::Breadcrumb-->
+                <ul class="breadcrumb breadcrumb-separatorless fw-semibold mb-6">
+                    <!--begin::Item-->
+                    <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
+                        <a href="../dist/index.html" class="text-gray-500">
+                            <i class="ki-duotone ki-home fs-3 text-gray-400 me-n1"></i>
+                        </a>
+                    </li>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <li class="breadcrumb-item">
+                        <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                    </li>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Customer</li>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <li class="breadcrumb-item">
+                        <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                    </li>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <li class="breadcrumb-item text-gray-700">Create</li>
+                    <!--end::Item-->
+                </ul>
+                <!--end::Breadcrumb-->
+                <!--begin::Title-->
+                <h1 class="page-heading d-flex flex-column justify-content-center text-dark fw-bolder fs-1 lh-0">Dashboard</h1>
+                <!--end::Title-->
+            </div>
+            <!--end::Page title-->
+        </div>
+        <!--end::Toolbar wrapper-->
+    </div>
+    <!--end::Toolbar container-->
+</div>
+<!--end::Toolbar-->
+<!--begin::Content-->
+<div id="kt_app_content" class="app-content flex-column-fluid">
+    <!--begin::Content container-->
+    <div id="kt_app_content_container" class="app-container container-fluid">
+
+        <form class="form mb-15 fv-plugins-bootstrap5 fv-plugins-framework" method="post" id="kt_contact_form">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdentityProjectInventory.Id" />
+            <!--begin::Input group-->
+            <div class="row mb-12">
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row fv-plugins-icon-container">
+                    <label asp-for="IdentityProjectInventory.ItemName" class="fs-5 fw-semibold mb-2"></label>
+                    <input asp-for="IdentityProjectInventory.ItemName" class="form-control form-control-solid" />
+                    <span asp-validation-for="IdentityProjectInventory.ItemName" class="text-danger"></span>
+                    <div class="fv-plugins-message-container invalid-feedback">
+                    </div>
+                </div>
+                <!--end::Col-->
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row fv-plugins-icon-container">
+                    <label asp-for="IdentityProjectInventory.ItemPrice" class="fs-5 fw-semibold mb-2"></label>
+                    <input asp-for="IdentityProjectInventory.ItemPrice" class="form-control form-control-solid" />
+                    <span asp-validation-for="IdentityProjectInventory.ItemPrice" class="text-danger"></span>
+                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                </div>
+                <!--end::Col-->
+            </div>
+            <!--end::Input group-->
+            <!--begin::Input group-->
+            <div class="row mb-12">
+                <div class="col-md-6 d-flex flex-column mb-5 fv-row">
+
+                    <label asp-for="IdentityProjectInventory.ItemPerUnit" class="fs-5 fw-semibold mb-2"></label>
+                    <input asp-for="IdentityProjectInventory.ItemPerUnit" class="form-control form-control-solid" />
+                    <span asp-validation-for="IdentityProjectInventory.ItemPerUnit" class="text-danger"></span>
+
+                </div>
+                <!--end::Input group-->
+                <!--begin::Input group-->
+                <div class="col-md-6 d-flex flex-column mb-10 fv-row fv-plugins-icon-container">
+
+                    <label asp-for="IdentityProjectInventory.ItemQnty" class="fs-5 fw-semibold mb-2"></label>
+                    <input asp-for="IdentityProjectInventory.ItemQnty" class="form-control form-control-solid" />
+                    <span asp-validation-for="IdentityProjectInventory.ItemQnty" class="text-danger"></span>
+
+                </div>
+            </div>
+            <div class="row mb-12">
+                <label asp-for="IdentityProjectInventory.CustomerID" class="control-label"></label>
+                <select asp-for="IdentityProjectInventory.CustomerID" class="form-control" asp-items="ViewBag.CustomerID"></select>
+                <span asp-validation-for="IdentityProjectInventory.CustomerID" class="text-danger"></span>
+            </div>
+
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IdentityProjectInventory.ItemTaxable" /> @Html.DisplayNameFor(model => model.IdentityProjectInventory.ItemTaxable)
+                </label>
+            </div>
+            <!--end::Input group-->
+            <!--begin::Submit-->
+            <button type="submit" class="btn btn-primary" id="kt_contact_submit_button">
+                <!--begin::Indicator label-->
+                <span class="indicator-label">Update</span>
+                <!--end::Indicator label-->
+                <!--begin::Indicator progress-->
+                <span class="indicator-progress">
+                    Please wait...
+                    <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                </span>
+                <!--end::Indicator progress-->
+            </button>
+            <!--end::Submit-->
+        </form>
+        <!--end::Row-->
+    </div>
+    <!--end::Content container-->
+</div>
+<!--end::Content-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1>Edit</h1>
+
+<h4>IdentityProjectInventory</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdentityProjectInventory.Id" />
+            <div class="form-group">
+                <label asp-for="IdentityProjectInventory.ItemName" class="control-label"></label>
+                <input asp-for="IdentityProjectInventory.ItemName" class="form-control" />
+                <span asp-validation-for="IdentityProjectInventory.ItemName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdentityProjectInventory.ItemPrice" class="control-label"></label>
+                <input asp-for="IdentityProjectInventory.ItemPrice" class="form-control" />
+                <span asp-validation-for="IdentityProjectInventory.ItemPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdentityProjectInventory.ItemPerUnit" class="control-label"></label>
+                <input asp-for="IdentityProjectInventory.ItemPerUnit" class="form-control" />
+                <span asp-validation-for="IdentityProjectInventory.ItemPerUnit" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IdentityProjectInventory.ItemTaxable" /> @Html.DisplayNameFor(model => model.IdentityProjectInventory.ItemTaxable)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdentityProjectInventory.ItemQnty" class="control-label"></label>
+                <input asp-for="IdentityProjectInventory.ItemQnty" class="form-control" />
+                <span asp-validation-for="IdentityProjectInventory.ItemQnty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdentityProjectInventory.Createdat" class="control-label"></label>
+                <input asp-for="IdentityProjectInventory.Createdat" class="form-control" />
+                <span asp-validation-for="IdentityProjectInventory.Createdat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdentityProjectInventory.Createdby" class="control-label"></label>
+                <input asp-for="IdentityProjectInventory.Createdby" class="form-control" />
+                <span asp-validation-for="IdentityProjectInventory.Createdby" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdentityProjectInventory.Updatedat" class="control-label"></label>
+                <input asp-for="IdentityProjectInventory.Updatedat" class="form-control" />
+                <span asp-validation-for="IdentityProjectInventory.Updatedat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdentityProjectInventory.Updatedby" class="control-label"></label>
+                <input asp-for="IdentityProjectInventory.Updatedby" class="form-control" />
+                <span asp-validation-for="IdentityProjectInventory.Updatedby" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdentityProjectInventory.CustomerID" class="control-label"></label>
+                <select asp-for="IdentityProjectInventory.CustomerID" class="form-control" asp-items="ViewBag.CustomerID"></select>
+                <span asp-validation-for="IdentityProjectInventory.CustomerID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
